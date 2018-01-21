@@ -1,0 +1,27 @@
+{
+  "name": "constructor_hangman",
+  "version": "1.0.0",
+  "description": "command-line-interfacing using Node.js to play a classic Hangman game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BSG-1/Constructor_Hangman.git"
+  },
+  "keywords": [
+    "Hangman"
+  ],
+  "author": "Bahadur Singh Ghataorhe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BSG-1/Constructor_Hangman/issues"
+  },
+  "homepage": "https://github.com/BSG-1/Constructor_Hangman#readme",
+  "dependencies": {
+    "inquirer": "^5.0.1",
+    "node": "^9.4.0",
+    "prompt": "^1.0.0"
+  }
+}
