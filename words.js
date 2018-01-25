@@ -1,11 +1,56 @@
-var topics = {
-	teams: [warriors, trojans, cavaliars, patriots, giants, sharks, dodgers, bruins, yankees, earthquakes],
-	animals: [],
- 	cities: []
- };
-
 //require letter object from letter.js export
-var Letter = require("./letter.js");
+var letter = require("./letter.js");
+
+var Word = function(wrd){
+	this.word = wrd;
+	this.lets = [];
+	this.found = false;
+	this.getLets = function(word){
+		for (var i = 0; i < this.word.length; i++) {
+			this.lets.push(new letter.Letter(this.word[i]));
+		}
+	};
+	
+	this.didWeFindWord = function(){
+		var count = 0;
+		for (var i = 0; i < this.lets.length; i++) {
+			if (this.lets[i].appear){
+				count++;
+			}
+		}
+		if (count === this.lets.length){
+			this.found = true;
+		}
+		return this.found;
+	};
+	
+	this.checkIfLetterFound = function(guessLetter){
+		var whatToReturn = 0;
+		for (var i = 0; i < this.lets.length; i++) {
+			if(this.lets[i].charac === guessLetter){
+				this.lets[i].appear = true;
+				whatToReturn++;
+			}
+		}
+		return whatToReturn;
+	};
+
+	this.wordRender = function(){
+		var str = "";
+		for (var i = 0; i < this.lets.length; i++) {
+			str += this.lets[i].letterRender();
+		}
+		return str;
+	};
+
+};
+
+exports.Word = Word;
+
+//----------------------------------------------------------//
+/*
+//require letter object from letter.js export
+var letter = require("./letter.js");
 
 //underscores at start of game
 let underscore = 0;
@@ -25,7 +70,7 @@ class Word{
 			let newLetter = new Letter(that.word[i]);
 			this.letters.push(newLetter);
 			//console log the underscores in the same line
-			let underscore += ' _ ';
+			let underscore = ' _ ';
 		}
 		console.log(underscore);
 	}
@@ -56,7 +101,7 @@ class Word{
 		let display = '';
 		that.letters.forEach(function(ltr){
 			let currentLetter = ltr.letterRender();
-			display ++ currentLetter;
+			display += currentLetter;
 		})
 		return display;
 	}	
@@ -64,3 +109,4 @@ class Word{
 };
 
 module.exports = Word; 
+*/

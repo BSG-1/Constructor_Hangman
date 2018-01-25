@@ -21,6 +21,7 @@
   "homepage": "https://github.com/BSG-1/Constructor_Hangman#readme",
   "dependencies": {
     "inquirer": "^5.0.1",
+    "is-letter": "^1.1.1",
     "node": "^9.4.0",
     "prompt": "^1.0.0"
   }
